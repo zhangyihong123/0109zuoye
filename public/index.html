@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录注册</title>
+	<script type="text/javascript" src = "jquery.min.js"></script>
+</head>
+<body>
+	<input type="text" id="user"><br />
+	<input type="text" id="pass"><br />
+	<button id="registered">注册</button>
+	<button id="landing">登陆</button>
+	<script type="text/javascript">
+	
+            $("#registered").click(()=>{
+	            $.ajax({
+				url:"http://localhost:8000/user/registered",
+				type:"POST",
+				data:{
+					user:$("#user").val(),
+					pass:$("#pass").val()
+				},
+				success:(data)=>{
+					alert(data)
+				}
+
+				})
+			})
+			$("#landing").click(()=>{
+				$.ajax({
+				url:"http://localhost:8000/user/landing",
+				type:"POST",
+				data:{
+					user:$("#user").val(),
+					pass:$("#pass").val()
+				},
+				success:(data)=>{
+					alert(data)
+				}
+
+				})
+			})	
+	</script>
+</body>
+</html>
